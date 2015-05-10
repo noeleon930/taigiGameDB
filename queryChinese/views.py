@@ -13,10 +13,10 @@ def query(request, wordQ):
         for answer in theAnswer:
             tmp = tmp + answer.word + ":" + answer.pronounce.split("/")[0]
 
-        return HttpResponse(tmp)
+        return HttpResponse(tmp, content_type='text/plain; charset=utf-8')
 
     else:
-        return HttpResponse("No results")
+        return HttpResponse("", content_type='text/plain; charset=utf-8')
 
 def question(request):
 
@@ -31,4 +31,4 @@ def question(request):
     tmp = ""
     tmp = tmp + oneQuestion.word + ":" + oneQuestion.pronounce.split("/")[0]
 
-    return HttpResponse(tmp)
+    return HttpResponse(tmp, content_type='text/plain; charset=utf-8')

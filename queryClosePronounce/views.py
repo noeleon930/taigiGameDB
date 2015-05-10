@@ -9,14 +9,14 @@ def similar(strA, strB):
 
 
 def hello_world(request):
-    return HttpResponse("Hello taigiGameDB!")
+    return HttpResponse("Hello taigiGameDB!", content_type='text/plain; charset=utf-8')
 
 
 def query(request, pronounceQ):
 
     # cut off if pronounceQ is too short
-    if(len(pronounceQ) <= 1):
-        return HttpResponse("Query is too short")
+    # if(len(pronounceQ) <= 1):
+        # return HttpResponse("Query is too short", content_type='text/plain; charset=utf-8')
 
     # the string for returning
     theAnswer = ""
@@ -38,6 +38,6 @@ def query(request, pronounceQ):
 		theAnswer = theAnswer + allPronounce.get(pronounce = theKey).chineses
 
     if(theAnswer == ""):
-        return HttpResponse("No results")
+        return HttpResponse("", content_type='text/plain; charset=utf-8')
     else:
-        return HttpResponse(theAnswer)
+        return HttpResponse(theAnswer, content_type='text/plain; charset=utf-8')
