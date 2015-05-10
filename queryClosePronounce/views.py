@@ -35,7 +35,7 @@ def query(request, pronounceQ):
 
     # sorting ranking and append result to theAnswer
     for theKey, theSimilarity in sorted(theRank.iteritems(), key = lambda (k, v) : (v, k), reverse=True):
-		theAnswer = theAnswer + theKey + ", " + str(round(theSimilarity, 2)) + " : " + allPronounce.get(pronounce = theKey).chineses + "<br>"
+		theAnswer = theAnswer + allPronounce.get(pronounce = theKey).chineses
 
     if(theAnswer == ""):
         return HttpResponse("No results")
