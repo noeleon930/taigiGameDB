@@ -34,8 +34,18 @@ def query(request, pronounceQ):
 			theRank[singlePronounce.pronounce] = tmp
 
     # sorting ranking and append result to theAnswer
+	# and use "," to seperate the char!!!!  thx Julia
     for theKey, theSimilarity in sorted(theRank.iteritems(), key = lambda (k, v) : (v, k), reverse=True):
-		theAnswer = theAnswer + allPronounce.get(pronounce = theKey).chineses
+		theAnswer = theAnswer + allPronounce.get(pronounce = theKey).chineses + ","
+
+	# clear last ","
+    if(theAnswer[-1] == ","):
+		theAnswer = theAnswer[0:-1]
+
+	# let's split and join >w<
+    theChSet = list(set(theAnswer.split(",")))
+    comma = ","
+    theAnswer = comma.join(theChSet)
 
     if(theAnswer == ""):
         return HttpResponse("", content_type='text/plain; charset=utf-8')
