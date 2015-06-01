@@ -48,12 +48,16 @@ def query(request, pronounceQ):
     # confirm the number of words is greater than 20
     theSetLen = len(theChSet)
     if (theSetLen < 20):
+        theAnswer = ""
+        theRank = {}
         for singlePronounce in allPronounce:
             tmp = similar(pronounceQ, singlePronounce.pronounce)
             if(tmp > 0.4):
                 theRank[singlePronounce.pronounce] = tmp
         for theKey, theSimilarity in sorted(theRank.iteritems(), key = lambda (k, v) : (v, k), reverse=True):
             theAnswer = theAnswer + allPronounce.get(pronounce = theKey).chineses + ","
+        if(theAnswer[-1] == ","):
+            theAnswer = theAnswer[0:-1]
         theChSet = list(set(theAnswer.split(",")))
 
 
