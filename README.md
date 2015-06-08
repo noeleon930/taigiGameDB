@@ -12,3 +12,5 @@
   3. http://127.0.0.1:8000/q/close_pronounce/liāng/ 會回傳接近 liāng 的發音(會排序)，與對應的中文字們
   4. http://127.0.0.1:8000/q/close_pronounce/l/ 會因為query太短，會回傳 Query is too short
   5. http://127.0.0.1:8000/q/close_pronounce/xxx/ 會因為無結果，會回傳 No results
+7. [2015.06.09 新功能]
+  1. 現在，只要瀏覽 http://127.0.0.1:8000/game/index.html 就可以開始玩遊戲啦! 用本機的速度! Badaboom!
