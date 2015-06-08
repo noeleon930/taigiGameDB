@@ -292,7 +292,7 @@
         return $.ajax({
           type: 'get',
           dataType: 'text',
-          url: 'http://14ef3e60.ngrok.io/q/get_question/',
+          url: '/../q/get_question/',
           success: function(data, status) {
             console.log("Data.getQuestion", status);
             if (typeof callback === 'function') {
@@ -319,7 +319,7 @@
         return $.ajax({
           type: 'get',
           dataType: 'text',
-          url: "http://14ef3e60.ngrok.io/q/close_pronounce/" + pronounce,
+          url: '/../q/close_pronounce/' + pronounce,
           success: function(data, status) {
             var optionList, text;
             text = Lib.strip(data.responseText);
