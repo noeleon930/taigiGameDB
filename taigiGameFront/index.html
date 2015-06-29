@@ -6,6 +6,7 @@
   <link href="css/vendor/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" type="text/css" href="css/app.css">
   <script src="js/vendor/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
 
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/react.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/JSXTransformer.js"></script> -->
@@ -58,9 +59,12 @@
               <div class="soundClickSpan">
               </div>
             </div>
-            <audio id="sound" controls preload="none">
-              <source id="sound_src" src="" type="audio/mpeg">
-            </audio>
+            <div class="hidden" style="display:none;">
+              <audio id="sound" preload="none">
+                <source id="sound_src" src="" type="audio/mpeg">
+              </audio>
+            </div>
+
           </div>
         </div>
       </div>
@@ -69,9 +73,31 @@
 
   </header>
 
+  <div class="hidden">
+    <audio id="audio_o" preload="auto">
+      <source src="audio/o.wav" type="audio/wav">
+    </audio>
+    <audio id="audio_x" preload="auto">
+      <source  src="audio/x.wav" type="audio/wav">
+    </audio>
+    <audio id="audio_t" preload="auto">
+      <source  src="audio/timing.mp3" type="audio/wav">
+    </audio>
+  </div>
+
+  <div id="result-effect" class="container">
+    <img id="o" src="img/effect/o.png" alt="正解" class="result_effect">
+    <img id="x" src="img/effect/x.png" alt="答錯" class="result_effect">
+    <img id="timeup" src="img/effect/timeup.png" alt="終了" class="result_effect">
+  </div>
+
+  <div id="hint">
+    <span class="round">壹</span>
+    <img src="img/hint/hint_t.png" alt="第x關">
+  </div>
   <article id="game" class="container">
     <div id="board">
-      <div class="background-inner">
+      <div class="background-inner" >
 
         <div id="ballonCon" class="row ballonCon">
           <!-- (.col-md-2>.ballon>span{二})*50-->
@@ -81,9 +107,10 @@
         </div>
       </div>
     </div>
+
   </article>
-  <div id="table">
-    <div class="container">
+  <!-- <div id="table"> -->
+    <div id="table" class="container">
       <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 funcBtnCon">
@@ -100,7 +127,7 @@
         <div class="col-md-3"></div>
       </div>
     </div>
-  </div>
+  <!-- </div> -->
 
 
   <!-- /.modal -->
@@ -142,6 +169,7 @@
               <div id="scoreboard">
                 <div class="inner">
                   <!-- <span class="how"></sapn> -->
+                  <span class="round"></span>
                   <span class="score"></span>
                 </div>
               </div>
